@@ -11,3 +11,7 @@
 
 해당 코드는 [컴퓨터 공학 채널의 글](https://arca.live/b/programmers/42355472?p=1)을 기반으로 수정하여 작성되었습니다.
 
+## 요구사항 
+* Python 3 (3.10.6 권장)
+* chromedriver
+
