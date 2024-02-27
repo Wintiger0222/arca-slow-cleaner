@@ -48,6 +48,8 @@ def channel_crawl(channel_URL,page_in,start_date,end_date):
             driver.get(article_URL)
             time.sleep(timesleeplen)
             try:
+                print('\033[33m'+str(datetime.datetime.now().strftime('[%H:%M:%S] '))+"글삭제시도 ["+str(article_id)+"]"+'\033[0m')
+                
                 delbtn = driver.find_element(By.XPATH,'/html/body/div[2]/div[3]/article/div/div[2]/div/div/form/div[2]/button')
                 delbtn.click()
                 print('\033[33m'+str(datetime.datetime.now().strftime('[%H:%M:%S] '))+"글을 삭제했습니다! ["+str(article_id)+"]"+'\033[0m')
@@ -87,7 +89,7 @@ if not channel_name:
 
 # URL = 'https://arca.live/b/'+str(channel_name)+'?target='+str(search_mode)+'&keyword='+nickname+'&after=0'
 
-driver = webdriver.Chrome(executable_path='chromedriver') #<- 크롬 기준
+driver = webdriver.Chrome() #<- 크롬 기준
 # driver = webdriver.Firefox(executable_path="/usr/local/bin/geckodriver") #<- 파이어폭스 기준
 driver.get("https://arca.live/u/login")
 input(str(datetime.datetime.now().strftime('[%H:%M:%S] '))+"웹브라우저에서 로그인한 뒤 Enter를 눌러 주세요> ")
