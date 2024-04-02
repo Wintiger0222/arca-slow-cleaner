@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import datetime
 import math
 
-timesleeplen=6 #4: 빠름, 6 보통, 10 권장
+timesleeplen=10 #4: 빠름, 6 보통, 10 권장
 timesleepload=1 #4: 빠름, 6 보통, 10 권장
 
 def channel_crawl(channel_URL):
@@ -30,7 +30,7 @@ def channel_crawl(channel_URL):
         flag_test=False
         for article in articles:
             i=i+1
-            if i<=15+14:
+            if i<=15+1:#+14:
                 continue    #댓글이 아님
             flag_test=True
             article_date_driver = article.find_elements(By.TAG_NAME,"time")
@@ -101,7 +101,7 @@ if not channel_name:
 options = webdriver.ChromeOptions()
 options.add_argument("user-agent=live.arca.android/0.8.331")
 
-driver = webdriver.Chrome(options=options, executable_path='chromedriver') #<- 크롬 기준
+driver = webdriver.Chrome(options=options) #<- 크롬 기준
 # driver = webdriver.Chrome(executable_path='chromedriver') #<- 크롬 기준
 # driver = webdriver.Firefox(executable_path="/usr/local/bin/geckodriver") #<- 파이어폭스 기준
 driver.get("https://arca.live/u/login")
